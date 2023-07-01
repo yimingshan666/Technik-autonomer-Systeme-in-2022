@@ -1,0 +1,35 @@
+# ===================================================================================
+# Description: UKF config file. For adjust of UKF related parameters
+# Modified By: Yiming Shan
+# Date: January 24, 2022
+# ===================================================================================
+
+ukf_filter_node:
+    ros__parameters:
+        frequency: 30.0
+        # sensor_timeout: 0.1
+        two_d_mode: true
+        transform_time_offset: 0.0
+        transform_timeout: 0.0 #0.5
+        print_diagnostics: true
+        debug: false   
+        permit_corrected_publication: false
+        publish_acceleration: true
+        publish_tf: true
+        
+        map_frame: map                   # Default -> "map" if not mentioned
+        odom_frame: odom                 # Default -> "odom" if not mentioned
+        base_link_frame: base_footprint  # Default -> "base_link" if not mentioned
+        world_frame: odom                # Default ->  "odom_frame" if not mentioned
+        odom0: odom
+
+        odom0_config: [true,  true,  true,
+                       false, false, false,
+                       false, false, false,
+                       false, false, true,
+                       false, false, false]    ## x, y, z, vyaw 
+
+        alpha: 0.001  ## special parameters in ukf 
+        kappa: 0.0
+        beta: 2.0 
+
